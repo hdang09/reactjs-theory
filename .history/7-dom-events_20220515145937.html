@@ -238,8 +238,7 @@
                 return (
                     <div className="course-item">
                         <h1 
-                            // onClick={e => alert(e.target.textContent)}
-                            onClick={() => onClick(course)}
+                            onClick={onClick}
                         >
                             {course.title}
                         </h1>
@@ -270,7 +269,7 @@
             // App.js
             function App() {
 
-                let handleClick = course => alert(course.title)
+                let handleClick = () => alert()
 
                 return (
                     <div className="wrapper">

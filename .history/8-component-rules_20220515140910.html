@@ -234,12 +234,11 @@
                 }
                 ]
 
-            function CourseItem({ course, onClick }) {
+            function CourseItem({ course }) {
                 return (
                     <div className="course-item">
                         <h1 
-                            // onClick={e => alert(e.target.textContent)}
-                            onClick={() => onClick(course)}
+                            onClick={e => alert(e.target.textContent)}
                         >
                             {course.title}
                         </h1>
@@ -269,18 +268,13 @@
 
             // App.js
             function App() {
-
-                let handleClick = course => alert(course.title)
-
                 return (
                     <div className="wrapper">
                         <Buttons />
-
                         {courses.map(course => (
                             <CourseItem 
                                 key={course.id} 
-                                course={course}
-                                onClick={handleClick}
+                                course={course}    
                             />
                         ))}
                     </div>
