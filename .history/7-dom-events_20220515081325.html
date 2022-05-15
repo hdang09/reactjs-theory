@@ -237,11 +237,7 @@
             function CourseItem({ data }) {
                 return (
                     <div className="course-item">
-                        <h1 
-                            onClick={e => alert(e.target.textContent)}
-                        >
-                            {data.title}
-                        </h1>
+                        <h1 onClick={e => alert(e.target.textContent)}>{data.title}</h1>
                         <img src={data.image_url}/>
                     </div>
                 )
