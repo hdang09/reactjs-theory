@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    </head>
+    
+    <body>
+        <div id="root"></div>
+        <!-- 
+            <h1 title="Hello" class="heading">Hello guys!</h1>
+            
+            <ul>
+                <li>Javascript</li>
+                <li>ReactJS</li>
+            </ul> 
+        -->
+
+        <script type="text/babel">
+            let root = ReactDOM.createRoot(document.getElementById('root'))
+
+            // let ul = <ul className="courses-list">
+            //     <li>Javascript</li>
+            //     <li style={{ color: 'blue' }}>ReactJS</li>
+            // </ul>
+
+            const courses = [
+                {
+                    name: 'HTML, CSS'
+                },
+                {
+                    name: 'Javascript'
+                },
+                {
+                    name: 'Responsive Web Design'
+                }
+            ]
+
+            // Render from an array
+            let ul = <ul className="courses-list">
+                {courses.map(
+                    course => <li>{course.name}</li>
+                )}
+            </ul>
+            
+            root.render(ul)
+        </script>
+    </body>
+</html>

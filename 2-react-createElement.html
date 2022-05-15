@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    </head>
+
+    <body>
+        <div id="root"></div>
+        <!-- <h1 title="Hello" class="heading">Hello guys!</h1>
+
+        <ul>
+            <li>Javascript</li>
+            <li>ReactJS</li>
+        </ul>
+
+        <div class="post-item">
+            <h2 title="Học React tại F8">Học ReactJS</h2>
+            <p>Học ReactJS từ cơ bản tới nâng cao</p>
+        </div> -->
+
+        <script>
+            // Get root element
+            const container = document.getElementById('root')
+            const root = ReactDOM.createRoot(container)
+
+
+
+            // ================== Exercise 1 ==================
+            // DOM
+            const h1DOM = document.createElement('h1')
+            h1DOM.className = 'heading'
+            h1DOM.title = 'Hello'
+            h1DOM.innerText = 'Hello guys'
+            document.body.appendChild(h1DOM)
+
+            // React: React.createElement(type, props, children, childrenN) - props includes children
+            const h1React = React.createElement(
+                'h1',
+                { title: 'Hello' },
+                'Hello guys!'
+            )
+            root.render(h1React)
+
+
+
+            // ================== Exercise 2 ==================
+            // DOM
+            const ulDOM = document.createElement('ul')
+            const liDOM1 = document.createElement('li')
+            liDOM1.innerText = 'Javascript'
+            const liDOM2 = document.createElement('li')
+            liDOM2.innerText = 'ReactJS'
+            document.body.appendChild(ulDOM)
+            ulDOM.appendChild(liDOM1)
+            ulDOM.appendChild(liDOM2)
+
+            // React
+            const ulReact = React.createElement(
+                'ul',
+                null,
+                React.createElement('li', null, 'Javascript (ReactDOM)'),
+                React.createElement('li', null, 'ReactJS (ReactDOM)')
+            )
+            // root.render(ulReact)
+
+
+
+        
+            // ================== Exercise 3 ==================
+            // DOM
+            const postItemDOM = document.createElement('div')
+            postItemDOM.className = 'post-item'
+            const titlePostItemDOM = document.createElement('h2')
+            titlePostItemDOM.title = 'Học React tại F8'
+            titlePostItemDOM.innerText = 'Học ReactJS'
+            const paragraphPostItemDOM = document.createElement('p')
+            paragraphPostItemDOM.innerText = 'Học ReactJS từ cơ bản tới nâng cao'
+            postItemDOM.appendChild(titlePostItemDOM)
+            postItemDOM.appendChild(paragraphPostItemDOM)
+            document.body.appendChild(postItemDOM)
+
+            // React
+            const postItemReact = React.createElement(
+                'div',
+                { className: 'post-item' },
+                React.createElement('h2', { title: 'Học React tại F8' }, 'Học ReactJS (ReactDOM)'),
+                React.createElement('p', null, '>Học ReactJS từ cơ bản tới nâng cao')
+            )
+        
+            // Render React DOM (React@17)
+            // ReactDOM.render(postItemReact, container)
+            
+            // Render React DOM (React@18)
+            // root.render(postItemReact)
+
+
+        </script>
+    </body>
+</html>

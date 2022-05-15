@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    </head>
+
+    <body>
+        <div id="root">
+            <!-- <h1 id="heading">Learn ReactJS</h1> -->
+        </div>
+
+        <script>
+
+            const root = document.getElementById('root')
+
+            const h1 = document.createElement('h1')
+            h1.textContent = 'Learn ReactJS'
+            h1.id = 'heading'
+            h1.className = 'heading-node'
+            // h1.style = 'color: red; background-color: peru'
+            Object.assign(h1.style, {
+                color: 'orange',
+                backgroundColor: 'peru'
+            })
+
+            document.body.appendChild(h1)
+
+            console.log(root)
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    </head>
+    
+    <body>
+        <div id="root"></div> 
+        
+        <script type="text/babel">
+            // React element types: string, function/class
+            //  - Wrapper
+            //      + Header => Header component
+            //      + Container => Container component
+            //      + Footer => Footer component
+            let root = ReactDOM.createRoot(document.getElementById('root'))
+            
+            // Create parts of a website
+            let Header = () => (
+                <div className="header">Header</div>
+            )
+
+            class Container extends React.Component {
+                render() {
+                    return (
+                        <div className="container">Container</div>
+                    )
+                }
+            }
+
+            let Footer = () => (
+                <div className="footer">Footer</div>
+            )
+
+
+
+            const app = (
+                <div className="wrapper">
+                    <Header />
+                    <Container />
+                    <Footer />
+                </div>
+            )
+
+            console.log(app)
+
+            // Create post upload
+            let PostItem = () => (
+                <div className="post-item">
+                    <img src="#" alt="" />
+                    <h1 className="post-title">Learn ReacJS</h1>
+                    <p className="post-desc">This is a description</p>
+                    <p className="post-published">Two days ago</p>
+                </div>
+            )
+
+            
+
+            const postList = (
+                <div className="post-list">
+                    <PostItem />
+                    <PostItem />
+                    <PostItem />
+                    <PostItem />
+                </div>
+            )
+            
+            root.render(postList)
+        </script>
+    </body>
+</html>
