@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    </head>
+    
+    <body>
+        <div id="root"></div> 
+        
+        <script type="text/babel">
+            
+            /** 
+             * Props default is true
+             * Spred/ Rest props
+             * Children props
+             * - <Component>strings</Component> 
+             * - <Component>{expression}</Component>
+             * Render props
+             */
+
+            /** Props in JSX
+                * propName1="string"
+                * propName2={expression} 
+            */
+
+            // <Component props>children</Component>
+
+            let root = ReactDOM.createRoot(document.getElementById("root"))
+
+            // Input.js (Rest/spead)
+            function Input({ label, ...propsInput }) {
+                console.log(children)
+                return (
+                    <div>
+                        <label>{label}</label>
+                        {
+                            /** <input type={type} placeholder={placeholder} /> */
+                            <input {...propsInput} />
+                        } 
+                    </div>
+                )
+            }
+
+            // Button.js (Prop default is true/ children)         
+            function Button({ title, children }) {
+                console.log(title); // Hello
+                console.log(children); // Click this button!
+
+                return <button>{title || children}</button>
+            }
+
+            // Form.js (Render props)
+            function List({ data, children }) {
+                console.log(data)
+                console.log(children)
+
+                // Render with prop 'data'
+                return (
+                    <ul>
+                        {data.map(item => <li key={item}>{item}</li>)}
+                    </ul>
+                )
+
+                // Render with children
+            }
+
+            const subjects = ['CSI104', 'PRF192', 'CEA201']
+
+            // App.js
+            function App() {
+                // prop 'primary' is true (don't need to write pirmary={true})
+                // return <Button primary title="Click me!" />
+
+                // return <Input 
+                //     label="Room Number"
+                //     type="text"
+                //     placeholder="Input a room number"
+                //     title="This is an input"
+                //     onFocus={() => console.log(Math.random())}
+                // />
+
+                // return <Button title="Hello">Click this button!</Button>
+
+                // return <List data={subjects} />
+                return <List data={subjects}>
+                            {item => <li>{item}</li>}
+                        </List>
+            }
+
+           root.render(<App />)
+        </script>
+    </body>
+</html>
