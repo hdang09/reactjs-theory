@@ -12,7 +12,10 @@ import UseMemo from './UseMemo';
 import UseReducer from './UseReducer';
 import TodoListWithUseReducer from './TodoListWithUseReducer';
 import UseContext from './UseContext';
+import ContextWithUseReducer from './ContextWithUseReducer';
+import UseInperativeHandle from './UseInperativeHandle';
 
+import { ThemeProvider } from './UseContext/ThemeContext'
 import reportWebVitals from './reportWebVitals';
 
 
@@ -29,7 +32,14 @@ root.render(
     {/* <UseCallback /> */}
     {/* <UseMemo /> */}
     {/* <UseReducer /> */}
-    <TodoListWithUseReducer />
+    {/* <TodoListWithUseReducer /> */}
+
+    <ThemeProvider>
+      <UseContext />
+    </ThemeProvider>
+    
+    {/* <ContextWithUseReducer /> */}
+    {/* <UseInperativeHandle /> */}
   </React.StrictMode>
 );
 
