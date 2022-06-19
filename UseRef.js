@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from "react"
 export default function UseRef() {
     const [number, setNumber] = useState(60)
     
-    // Handle stop countdown
+    // Handle start and stop countdown
     let timerId = useRef()
     const handleStart = () => {
         timerId.current = setInterval(() => {
@@ -23,6 +23,7 @@ export default function UseRef() {
     // See previous and current number
     const prevNum = useRef()
     useEffect(() => {
+        console.log(prevNum.current)
         prevNum.current = number
     }, [number])
     console.log(`Curr: ${number}, Prev: ${prevNum.current}`)
@@ -32,10 +33,10 @@ export default function UseRef() {
     // Get h1 element
     const h1Ref = useRef()
     useEffect(() => {
-        console.log(h1Ref.current)
+        console.log('h1 ref: ', h1Ref.current)
 
         const rect = h1Ref.current.getBoundingClientRect()
-        console.log(rect)
+        console.log('Rect: ', rect)
     })
 
     return (

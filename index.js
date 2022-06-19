@@ -10,12 +10,18 @@ import UseRef from './UseRef';
 import UseCallback from './UseCallback';
 import UseMemo from './UseMemo';
 import UseReducer from './UseReducer';
-import TodoListWithUseReducer from './TodoListWithUseReducer';
-import UseContext from './UseContext';
-import ContextWithUseReducer from './ContextWithUseReducer';
-import UseInperativeHandle from './UseInperativeHandle';
+import TodoListWithUseReducer from './UseReducer/index';
 
+import UseContext from './UseContext';
 import { ThemeProvider } from './UseContext/ThemeContext'
+
+import ContextWithUseReducer from './ContextWithUseReducer';
+import { StoreProvider } from './store'
+
+import UseInperativeHandle from './UseInperativeHandle';
+import CSSModules from './CSSModules';
+
+
 import reportWebVitals from './reportWebVitals';
 
 
@@ -35,11 +41,15 @@ root.render(
     {/* <TodoListWithUseReducer /> */}
 
     <ThemeProvider>
-      <UseContext />
+      {/* <UseContext /> */}
     </ThemeProvider>
-    
-    {/* <ContextWithUseReducer /> */}
+
+    <StoreProvider>
+      {/* <ContextWithUseReducer /> */}
+    </StoreProvider>
+
     {/* <UseInperativeHandle /> */}
+    {/* <CSSModules /> */}
   </React.StrictMode>
 );
 
